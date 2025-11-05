@@ -1,0 +1,484 @@
+/* ================================================= */
+/* 0. VARIAVEIS GLOBAIS E RESET                     */
+/* ================================================= */
+
+:root {
+    /* Cores */
+    --color-primary: #5C4033; /* Marrom Café Escuro */
+    --color-secondary: #A0522D; /* Sépia / Marrom Caramelo */
+    --color-accent: #B8860B; /* Dourado Sutil */
+    --color-neutral-light: #F7F7F7; /* Quase Branco */
+    --color-neutral-dark: #333333; /* Cinza Escuro para texto */
+    
+    /* Fontes */
+    /* Playfair Display para títulos (Serif Elegante) */
+    --font-heading: 'Playfair Display', Georgia, serif; 
+    /* Inter para corpo (Sans-Serif Moderno) */
+    --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif; 
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-neutral-dark);
+    background-color: var(--color-neutral-light);
+    display: flex; /* Layout com sidebar e conteúdo */
+    min-height: 100vh;
+}
+
+/* Tipografia de destaque */
+.playfair {
+    font-family: var(--font-heading);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-secondary);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--color-secondary);
+    color: var(--color-neutral-light);
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s, transform 0.2s;
+    border: 2px solid var(--color-secondary);
+}
+
+.btn:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: 2px solid var(--color-secondary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-neutral-light);
+    border-color: var(--color-secondary);
+}
+
+/* ================================================= */
+/* 1. SIDEBAR (MENU LATERAL)                        */
+/* ================================================= */
+
+.sidebar {
+    width: 250px;
+    background-color: var(--color-primary);
+    color: var(--color-neutral-light);
+    padding: 30px 20px;
+    flex-shrink: 0; /* Impede que diminua */
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar .logo {
+    color: var(--color-neutral-light);
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav li {
+    margin-bottom: 15px;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--color-neutral-light);
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 400;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--color-accent); /* Destaque elegante */
+}
+
+.sidebar-contact {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-contact a {
+    color: inherit;
+}
+
+/* ================================================= */
+/* 2. CONTEÚDO PRINCIPAL (MAIN CONTENT)             */
+/* ================================================= */
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.content header {
+    background-color: var(--color-neutral-light);
+    padding: 20px 30px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.content header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--color-neutral-dark);
+}
+
+#menu-toggle {
+    display: none; /* Esconde em desktop */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+/* ================================================= */
+/* 3. SEÇÃO HERO (APRESENTAÇÃO INICIAL)             */
+/* ================================================= */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Altura ideal para telas grandes */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7); /* Escurece a imagem para o texto se destacar */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.hero-text h2 {
+    font-size: 3.5rem;
+    color: var(--color-neutral-light);
+    margin-bottom: 0.2em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+}
+
+/* ================================================= */
+/* 4. SEÇÕES DE CONTEÚDO                            */
+/* ================================================= */
+
+section {
+    padding: 80px 30px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-secondary);
+    margin: 10px auto 0;
+}
+
+/* DESTAQUES DO CARDÁPIO */
+
+.featured-products {
+    background-color: white; /* Contraste leve com o fundo do body */
+    text-align: center;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    background-color: var(--color-neutral-light);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.link-details {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* MISSÃO / SOBRE NÓS */
+.mission {
+    background-color: #EAE3D4; /* Cor de fundo creme para aconchego */
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 100px 30px;
+}
+
+.mission-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.mission-text h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.mission-text p {
+    margin-bottom: 30px;
+}
+
+.mission-image {
+    flex: 1;
+    text-align: center;
+}
+
+.mission-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ================================================= */
+/* 5. FOOTER (RODAPÉ)                               */
+/* ================================================= */
+
+footer {
+    background-color: var(--color-neutral-dark);
+    color: var(--color-neutral-light);
+    padding: 40px 30px 20px;
+    text-align: center;
+    border-top: 5px solid var(--color-secondary);
+}
+
+.footer-info, .footer-contact-mobile {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.footer-contact-mobile {
+    display: none; /* Escondido em desktop */
+}
+
+.footer-info h3 {
+    color: var(--color-neutral-light);
+    margin-bottom: 10px;
+}
+
+.footer-info p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: var(--color-neutral-light);
+    opacity: 0.8;
+}
+
+.social-links a:hover {
+    color: var(--color-accent);
+    opacity: 1;
+}
+
+.copyright p {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ================================================= */
+/* 6. RESPONSIVIDADE (MOBILE)                       */
+/* ================================================= */
+
+@media (max-width: 900px) {
+    /* Esconde a barra lateral em mobile */
+    .sidebar {
+        position: fixed;
+        left: -250px;
+        top: 0;
+        z-index: 1000;
+        transition: left 0.3s;
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Estilo para menu aberto (será aplicado via JS) */
+    .sidebar.open {
+        left: 0;
+    }
+
+    /* Ajusta o corpo quando o menu está aberto */
+    body.menu-open {
+        overflow-x: hidden;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    #menu-toggle {
+        display: block; /* Mostra o botão toggle */
+    }
+
+    .sidebar-contact {
+        display: none; /* Esconde contato na sidebar em mobile, movido para o footer */
+    }
+
+    .footer-contact-mobile {
+        display: block; /* Mostra contato no footer em mobile */
+    }
+
+    /* Reduz o tamanho de fontes e seções */
+    .hero {
+        height: 450px;
+    }
+    
+    .hero-text h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .mission {
+        flex-direction: column;
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .mission-text, .mission-image {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .mission-text h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.7rem; }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 40px 20px;
+    }
+}

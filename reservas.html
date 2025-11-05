@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas | Café do Bairro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/reservas.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2 class="logo">Café do Bairro</h2>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="cardapio.html">Cardápio</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+        <li><a href="reservas.html" class="active">Reservas</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-contact">
+        <p>Aberta das 08:00 às 20:00</p>
+        <p>Rua Fictícia, 123 | Centro</p>
+        <p><a href="mailto:contato@cafedobairro.com">contato@cafedobairro.com</a></p>
+    </div>
+  </aside>
+
+    <main class="content">
+        <header>
+            <button id="menu-toggle">☰</button>
+            <h1>Reserve Sua Mesa</h1>
+        </header>
+
+        <section class="reservation-intro">
+            <h2 class="playfair">Garanta Seu Lugar</h2>
+            <p>Seja para um café de negócios, um encontro especial ou um momento de leitura tranquilo, faça sua reserva e evite esperas. Seu conforto é nossa prioridade.</p>
+        </section>
+
+        <section class="reservation-form-section">
+            <h3 class="playfair form-title">Preencha os Dados</h3>
+            <form id="reservaForm" class="clean-form">
+                
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+
+                <label for="data">Data Desejada:</label>
+                <input type="date" id="data" name="data" required>
+
+                <label for="hora">Horário:</label>
+                <input type="time" id="hora" name="hora" required>
+
+                <label for="pessoas">Número de Pessoas:</label>
+                <input type="number" id="pessoas" name="pessoas" min="1" max="10" placeholder="Ex: 2" required>
+                
+                <label for="email">E-mail para Confirmação:</label>
+                <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
+
+                <div id="form-feedback" class="form-feedback"></div>
+
+                <button type="submit" class="btn">Confirmar Reserva</button>
+            </form>
+        </section>
+        
+        <section class="reservation-notes">
+            <h2 class="playfair">Regras Importantes</h2>
+            <ul>
+                <li>⚠️ **Tolerância de Atraso:** As mesas reservadas serão mantidas por um máximo de **15 minutos** de tolerância.</li>
+                <li>👨‍👩‍👧‍👦 **Grupos Grandes:** Para grupos acima de 6 pessoas, pedimos que entre em contato por telefone para garantir a melhor acomodação.</li>
+                <li>❌ **Cancelamento:** Caso não possa comparecer, pedimos a gentileza de cancelar sua reserva com antecedência.</li>
+            </ul>
+        </section>
+    </main>
+    <script src="./js/reservas.js"></script>
+</body>
+</html>

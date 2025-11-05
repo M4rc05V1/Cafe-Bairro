@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/global.css"> 
+    <link rel="stylesheet" href="./css/cardapio.css">
+  <title>Document</title>
+</head>
+<body>
+  <aside class="sidebar">
+    <h2 class="logo">Café do Bairro</h2>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="cardapio.html" class="active">Cardápio</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+        <li><a href="reservas.html">Reservas</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-contact">
+        <p>Aberta das 08:00 às 20:00</p>
+        <p>Rua Fictícia, 123 | Centro</p>
+        <p><a href="mailto:contato@cafedobairro.com">contato@cafedobairro.com</a></p>
+    </div>
+  </aside>
+  <main class="content">
+  <header>
+    <button id="menu-toggle">☰</button>
+    <h1>Nosso Cardápio</h1>
+  </header>
+
+  <section class="menu-category" id="classicos">
+    <h2 class="playfair">☕ Cafés Clássicos</h2>
+    <p class="category-description">Grãos selecionados, torra artesanal e a tradição em cada xícara.</p>
+    <div class="menu-grid">
+      
+      <div class="card menu-item">
+        <img src="./assets/img/expresso.webp" alt="Café Expresso">
+        <div class="item-details">
+          <h3>Café Expresso</h3>
+          <p class="description">Intenso e aromático. A base perfeita para o seu dia.</p>
+          <p class="price">R$ 6,00</p>
+        </div>
+      </div>
+
+      <div class="card menu-item">
+        <img src="./assets/img/caffemacchiato.webp" alt="Capuccino">
+        <div class="item-details">
+          <h3>Cappuccino Italiano</h3>
+          <p class="description">O equilíbrio perfeito de espresso, leite vaporizado e espuma cremosa.</p>
+          <p class="price">R$ 9,00</p>
+        </div>
+      </div>
+      
+      <div class="card menu-item">
+        <img src="./assets/img/latte.webp" alt="Latte Macchiato">
+        <div class="item-details">
+          <h3>Latte Macchiato</h3>
+          <p class="description">Leite quente manchado com uma dose de nosso espresso da casa.</p>
+          <p class="price">R$ 10,00</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  
+  <hr class="separator">
+
+  <section class="menu-category" id="doces">
+    <h2 class="playfair">🍰 Doces e Acompanhamentos</h2>
+    <p class="category-description">Receitas caseiras que harmonizam perfeitamente com seu café.</p>
+    <div class="menu-grid">
+      
+      <div class="card menu-item">
+        <img src="./assets/img/bolo-caseiro.webp" alt="Bolo Caseiro">
+        <div class="item-details">
+          <h3>Bolo Caseiro do Dia</h3>
+          <p class="description">Sabor fresco e inconfundível. Consulte a opção do dia.</p>
+          <p class="price">R$ 8,00 / fatia</p>
+        </div>
+      </div>
+
+      <div class="card menu-item">
+        <img src="./assets/img/Croissants.webp" alt="Croissant de Amêndoas">
+        <div class="item-details">
+          <h3>Croissant de Amêndoas</h3>
+          <p class="description">Massa folhada e crocante recheada com um delicioso creme de amêndoas.</p>
+          <p class="price">R$ 12,00</p>
+        </div>
+      </div>
+      
+      <div class="card menu-item">
+        <img src="./assets/img/torta-limao.webp" alt="Torta de Limão">
+        <div class="item-details">
+          <h3>Torta de Limão</h3>
+          <p class="description">Equilíbrio perfeito entre o azedo do limão e a doçura do merengue.</p>
+          <p class="price">R$ 10,00</p>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <hr class="separator">
+  
+  <section class="menu-category" id="salgados">
+    <h2 class="playfair">🥐 Salgados Artesanais</h2>
+    <p class="category-description">Opções leves e saborosas, preparadas diariamente.</p>
+    <div class="menu-grid">
+        <div class="card menu-item">
+          <img src="./assets/img/Queijo-Gourmet.webp" alt="Pão de Queijo">
+          <div class="item-details">
+            <h3>Pão de Queijo Gourmet</h3>
+            <p class="description">Feito com queijo canastra e assado na hora. Unidade.</p>
+            <p class="price">R$ 5,00</p>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="order-cta">
+    <h2 class="playfair">Leve o Café do Bairro para Casa!</h2>
+    <p>Faça seu pedido online para retirada rápida ou consulte nossa área de delivery.</p>
+    <a href="#" class="btn">Pedir Online (Em Breve)</a>
+  </section>
+
+</main>
+<script src="./js/cardapio.js"></script>
+</body>
+</html>

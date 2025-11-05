@@ -1,0 +1,172 @@
+/* ================================================= */
+/* VARIÁVEIS, RESET E BASE (IMPORTANTE PARA CONSISTÊNCIA) */
+/* ================================================= */
+:root {
+    /* Mantenha todas as variáveis de cor e fonte aqui */
+    --color-primary: #5C4033; /* Marrom Café Escuro */
+    --color-secondary: #A0522D; /* Sépia / Marrom Caramelo */
+    /* ... outras variáveis ... */
+    --color-neutral-light: #F7F7F7;
+    --color-neutral-dark: #333333;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-neutral-dark);
+    background-color: var(--color-neutral-light);
+    display: flex; /* Essencial para o layout lado a lado */
+    min-height: 100vh;
+}
+
+/* ... Estilos base para h1, h2, p, a, e .btn ... */
+/* Certifique-se de que os estilos dos botões e tipografia base estejam aqui */
+
+
+/* ================================================= */
+/* 2. SIDEBAR (MENU LATERAL) - Código para Desktop  */
+/* ================================================= */
+.sidebar {
+    width: 250px;
+    background-color: var(--color-primary);
+    color: var(--color-neutral-light);
+    padding: 30px 20px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar .logo {
+   color: var(--color-accent); 
+    font-family: var(--font-heading); 
+    font-size: 2.2rem; 
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+.sidebar nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo sutil */
+    color: var(--color-neutral-light); /* Cor branca no hover */
+    transform: translateX(5px);
+}
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav li {
+    margin-bottom: 15px;
+}
+
+.sidebar nav a {
+  display: block;
+    padding: 10px 15px;
+    color: rgba(255, 255, 255, 0.85); 
+    text-decoration: none; 
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    font-weight: 400;
+    letter-spacing: 0.5px; /* Sutil espaçamento para elegância */
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active { 
+    background-color: var(--color-secondary); /* Usa a cor Sépia para destaque */
+    color: var(--color-neutral-light); 
+    font-weight: 600; /* Deixa o texto ativo mais forte */
+    transform: translateX(0);
+}
+
+.sidebar-contact {
+   font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6); 
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.sidebar-contact p {
+    margin-bottom: 5px;
+}
+.sidebar-contact a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none; 
+}
+
+.sidebar-contact a:hover {
+    color: var(--color-neutral-light);
+}
+
+/* Conteúdo Principal e Botão Toggle */
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.content header {
+    background-color: var(--color-neutral-light);
+    padding: 20px 30px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#menu-toggle {
+    display: none; /* Esconde por padrão em desktop */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    cursor: pointer;
+    color: var(--color-primary);
+    z-index: 1001; /* Garante que fique acima do conteúdo */
+}
+
+
+/* ================================================= */
+/* 3. RESPONSIVIDADE (MOBILE) - Código para Sidebar  */
+/* ================================================= */
+
+@media (max-width: 900px) {
+    /* 1. Esconde a barra lateral (move para fora da tela) */
+    .sidebar {
+        position: fixed;
+        left: -250px;
+        top: 0;
+        z-index: 1000;
+        transition: left 0.3s;
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 2. Mostra a barra lateral quando a classe 'open' é adicionada pelo JS */
+    .sidebar.open {
+        left: 0;
+    }
+
+    /* 3. Mostra o botão toggle em mobile */
+    #menu-toggle {
+        display: block;
+    }
+    
+    /* 4. Impede o scroll do corpo quando o menu está aberto */
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    /* Zera o padding que a sidebar ocupava em desktop */
+    .content {
+        padding-left: 0;
+    }
+}

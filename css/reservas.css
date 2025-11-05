@@ -1,0 +1,222 @@
+/* ================================================= */
+/* IMPORTAÇÃO DE VARIÁVEIS E BASE (CONSISTÊNCIA)    */
+/* ================================================= */
+
+/* Copiar o bloco :root { ... } do index.css aqui para garantir as cores e fontes */
+:root {
+    --color-primary: #5C4033;
+    --color-secondary: #A0522D;
+    --color-accent: #B8860B;
+    --color-neutral-light: #F7F7F7;
+    --color-neutral-dark: #333333;
+    
+    --font-heading: 'Playfair Display', Georgia, serif; 
+    --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif; 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-neutral-dark);
+    background-color: var(--color-neutral-light);
+}
+
+.content {
+    flex-grow: 1;
+    padding: 0 30px; 
+    max-width: 1000px; /* Limita a largura do conteúdo para melhor leitura */
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+}
+
+.btn {
+    /* Estilo de botão consistente com o index.css */
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--color-secondary);
+    color: var(--color-neutral-light);
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+    width: 100%; /* O botão ocupa toda a largura do formulário */
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: var(--color-primary);
+}
+
+/* ================================================= */
+/* 1. SEÇÃO INTRODUTÓRIA                            */
+/* ================================================= */
+
+.reservation-intro {
+    padding: 60px 0;
+    text-align: center;
+    border-bottom: 2px solid var(--color-secondary);
+    margin-bottom: 40px;
+}
+
+.reservation-intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.reservation-intro p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ================================================= */
+/* 2. FORMULÁRIO DE RESERVA                         */
+/* ================================================= */
+
+.reservation-form-section {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: var(--color-secondary);
+}
+
+.clean-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+}
+
+.clean-form input[type="text"],
+.clean-form input[type="date"],
+.clean-form input[type="time"],
+.clean-form input[type="number"],
+.clean-form input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: var(--color-neutral-light);
+    transition: border-color 0.3s;
+}
+
+.clean-form input:focus {
+    border-color: var(--color-secondary);
+    outline: none;
+    box-shadow: 0 0 5px rgba(160, 82, 45, 0.3);
+}
+
+/* ================================================= */
+/* 3. REGRAS E OBSERVAÇÕES                          */
+/* ================================================= */
+
+.reservation-notes {
+    padding: 60px 0;
+    background-color: #EAE3D4; /* Cor creme suave */
+    margin-top: 40px;
+    text-align: center;
+}
+
+.reservation-notes h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.reservation-notes ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.reservation-notes li {
+    background-color: white;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    line-height: 1.4;
+    font-size: 1rem;
+}
+
+/* ================================================= */
+/* 4. RESPONSIVIDADE                                */
+/* ================================================= */
+
+@media (max-width: 600px) {
+    .content {
+        padding: 0 15px;
+    }
+    
+    .reservation-intro h2 {
+        font-size: 2rem;
+    }
+    
+    .reservation-form-section {
+        padding: 20px;
+        margin: 0 10px;
+    }
+    
+    .reservation-notes {
+        padding: 40px 15px;
+    }
+    
+    .reservation-notes li {
+        font-size: 0.95rem;
+    }
+}
+/* Estilo para a área de feedback */
+.form-feedback {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0; /* Esconde por padrão */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Estilo para mensagem de sucesso */
+.form-feedback.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    opacity: 1;
+}
+
+/* Estilo para mensagem de erro */
+.form-feedback.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    opacity: 1;
+}
+
+/* Estilo para destacar campos com erro */
+input.error, select.error {
+    border: 2px solid #721c24 !important; 
+    background-color: #ffeaea;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café do Bairro ☕</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/global.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2 class="logo">Café do Bairro</h2>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Início</a></li>
+        <li><a href="cardapio.html">Cardápio</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+        <li><a href="reservas.html">Reservas</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-contact">
+        <p>Aberta das 08:00 às 20:00</p>
+        <p>Rua Fictícia, 123 | Centro</p>
+        <p><a href="mailto:contato@cafedobairro.com">contato@cafedobairro.com</a></p>
+    </div>
+  </aside>
+
+  <main class="content">
+    <header>
+      <button id="menu-toggle">☰</button>
+      <h1>Bem-vindo ao Café do Bairro</h1>
+    </header>
+
+    <section class="hero">
+      <img src="./assets/img/index.webp" alt="Cafeteria aconchegante">
+      <div class="hero-text">
+        <h2 class="playfair">O sabor que aquece sua alma</h2>
+        <p>Experimente nossos cafés de torra especial e doces caseiros em um ambiente acolhedor e moderno.</p>
+        <a href="cardapio.html" class="btn">Ver Cardápio Completo</a>
+      </div>
+    </section>
+
+    <section class="featured-products">
+        <h2 class="section-title playfair">Nossos Destaques</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="./assets/img/expresso.webp" alt="Café Espresso">
+                <h3>Espresso da Casa</h3>
+                <p>Grãos de altitude com notas de chocolate e caramelo. Torra média e equilibrada.</p>
+                <a href="cardapio.html#espresso" class="link-details">Ver detalhes →</a>
+            </div>
+            <div class="product-card">
+                <img src="./assets/img/bolo-red.webp" alt="Fatia de bolo">
+                <h3>Bolo Red Velvet</h3>
+                <p>Massa aveludada, recheio de cream cheese e o toque suave de cacau.</p>
+                <a href="cardapio.html#doces" class="link-details">Ver detalhes →</a>
+            </div>
+            <div class="product-card">
+                <img src="./assets/img/Cappuccino.webp" alt="Xícara de Cappuccino">
+                <h3>Cappuccino Clássico</h3>
+                <p>O equilíbrio perfeito entre café, leite vaporizado e uma camada generosa de espuma.</p>
+                <a href="cardapio.html#bebidas-leite" class="link-details">Ver detalhes →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission">
+        <div class="mission-text">
+            <h2 class="playfair">Mais do que café, uma experiência.</h2>
+            <p>Desde 2015, o Café do Bairro é um refúgio para quem busca qualidade, tradição e um ambiente que convida à pausa. Nossa história fictícia é construída sobre a paixão pelo grão perfeito e o desejo de criar conexões.</p>
+            <a href="sobre.html" class="btn btn-secondary">Conheça Nossa História</a>
+        </div>
+        <div class="mission-image">
+            <img src="./assets/img/cafeteira.webp" alt="Máquina de café tradicional">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <h3 class="playfair">Café do Bairro</h3>
+            <p>Um lugar para se encontrar. Um sabor para lembrar.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Instagram">📸</a>
+                <a href="#" aria-label="Facebook">📘</a>
+            </div>
+        </div>
+        <div class="footer-contact-mobile">
+            <p>📍 Rua Fictícia, 123 | Centro</p>
+            <p>⏰ Aberta: Seg-Sáb | 08h - 20h</p>
+            <p>📞 (99) 99999-9999</p>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Café do Bairro. Site Demonstrativo. Desenvolvido por Marcos.</p>
+        </div>
+    </footer>
+
+  </main>
+  <script src="./js/index.js"></script>
+</body>
+</html>

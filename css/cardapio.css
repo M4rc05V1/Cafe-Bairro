@@ -1,0 +1,139 @@
+/* Importação das variáveis (se não forem globais) */
+/* :root { ... } (Copiar do index.css se necessário) */
+
+.content {
+    /* Garante que o conteúdo tenha margem para a sidebar */
+    padding-left: 30px; 
+}
+
+/* Título e Header do Cardápio */
+.content header h1 {
+    font-size: 2.2rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--color-secondary);
+    display: inline-block;
+    color: var(--color-primary);
+}
+
+/* Estilo das Categorias */
+.menu-category {
+    padding: 60px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-category h2 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.category-description {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 30px;
+    padding-left: 5px;
+}
+
+.separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: 40px auto;
+}
+
+/* Grid de Itens */
+.menu-grid {
+    display: grid;
+    /* Layout responsivo: 2 colunas no desktop, 1 no mobile */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+/* Card Individual (Item do Menu) */
+.menu-item {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-neutral-light);
+    padding: 15px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    transition: box-shadow 0.3s;
+}
+
+.menu-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.menu-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+    flex-shrink: 0; /* Impede que a imagem encolha */
+}
+
+.item-details h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: var(--color-secondary);
+}
+
+.item-details .description {
+    font-size: 0.95rem;
+    color: var(--color-neutral-dark);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.item-details .price {
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+}
+
+/* Seção de Chamada para Ação (CTA) */
+.order-cta {
+    text-align: center;
+    padding: 50px 30px;
+    background-color: var(--color-neutral-light); /* Cor de fundo suave */
+    border-top: 2px solid var(--color-secondary);
+    margin-top: 40px;
+}
+
+.order-cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+.order-cta p {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Responsividade para Cardápio */
+@media (max-width: 900px) {
+    .content {
+        padding-left: 0;
+    }
+    
+    .menu-grid {
+        /* Apenas uma coluna em telas menores */
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu-item img {
+        margin: 0 auto 15px auto;
+    }
+}

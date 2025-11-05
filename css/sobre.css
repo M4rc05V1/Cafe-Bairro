@@ -1,0 +1,271 @@
+/* ================================================= */
+/* IMPORTAÇÃO DE VARIÁVEIS (RECOMENDADO)            */
+/* ================================================= */
+
+/* Supondo que você terá as variáveis do index.css (cores, fontes) */
+/* Caso não tenha, copie o bloco :root { ... } do index.css aqui. */
+
+:root {
+    /* Cores */
+    --color-primary: #5C4033; /* Marrom Café Escuro */
+    --color-secondary: #A0522D; /* Sépia / Marrom Caramelo */
+    --color-accent: #B8860B; /* Dourado Sutil */
+    --color-neutral-light: #F7F7F7; /* Quase Branco */
+    --color-neutral-dark: #333333; /* Cinza Escuro para texto */
+    
+    /* Fontes */
+    --font-heading: 'Playfair Display', Georgia, serif; 
+    --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif; 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-neutral-dark);
+    background-color: var(--color-neutral-light);
+}
+
+.content {
+    /* Ajuste para o conteúdo, como feito no cardapio.css */
+    flex-grow: 1;
+    padding: 0 30px; 
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+}
+
+/* Estilo para Títulos de Seção */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-secondary);
+    margin: 10px auto 0;
+}
+
+/* ================================================= */
+/* 1. SEÇÃO HERO (História)                         */
+/* ================================================= */
+
+.about-hero {
+    padding: 80px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+.history-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.history-image {
+    width: 40%;
+    max-width: 350px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ================================================= */
+/* 2. FILOSOFIA (3 Colunas)                         */
+/* ================================================= */
+
+.philosophy-section {
+    padding: 60px 0;
+    background-color: white;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.value-card {
+    padding: 25px;
+    text-align: center;
+    border-left: 3px solid var(--color-secondary);
+    background-color: var(--color-neutral-light);
+}
+
+.value-card h3 {
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+}
+
+/* ================================================= */
+/* 3. EQUIPE (Membros)                              */
+/* ================================================= */
+
+.team-section {
+    padding: 60px 0;
+    background-color: #EAE3D4; /* Cor creme suave */
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.team-member {
+    text-align: center;
+    max-width: 250px;
+}
+
+.team-member img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%; /* Imagem redonda para um toque mais pessoal */
+    border: 5px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.member-name {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.member-role {
+    color: var(--color-secondary);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.member-bio {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #666;
+}
+
+/* ================================================= */
+/* 4. GALERIA (Fotos)                               */
+/* ================================================= */
+
+.gallery-section {
+    padding: 60px 0;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Coluna grande à esquerda e duas pequenas à direita */
+    grid-template-rows: 250px 250px;
+    gap: 15px;
+}
+
+.gallery-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.gallery-photo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-photo.large {
+    grid-row: 1 / span 2; /* Ocupa duas linhas */
+}
+
+/* ================================================= */
+/* 5. CONTATO E LOCALIZAÇÃO                         */
+/* ================================================= */
+
+.contact-info {
+    padding: 60px 0 80px 0;
+    background-color: white;
+}
+
+.contact-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.contact-details h3 {
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* ================================================= */
+/* 6. RESPONSIVIDADE                                */
+/* ================================================= */
+
+@media (max-width: 900px) {
+    /* Ajustes gerais de padding e fonte */
+    .content {
+        padding: 0 20px;
+    }
+    
+    .history-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .history-image {
+        width: 100%;
+        max-width: 400px;
+        order: -1; /* Move a imagem para o topo em mobile */
+        margin-bottom: 20px;
+    }
+
+    .team-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .photo-grid {
+        /* Transforma a galeria em uma lista simples em mobile */
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+
+    .gallery-photo.large {
+        grid-row: auto;
+    }
+    
+    .team-member img {
+        height: 200px;
+    }
+}
